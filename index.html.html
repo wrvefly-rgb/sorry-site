@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hey abim 🦒</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 18px;
+      font-family: "Verdana", "Trebuchet MS", sans-serif;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.95) 0 34px, transparent 35px),
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.9) 0 24px, transparent 25px),
+        radial-gradient(circle at 78% 14%, rgba(255, 255, 255, 0.95) 0 32px, transparent 33px),
+        radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.9) 0 22px, transparent 23px),
+        radial-gradient(circle at 15% 82%, rgba(255, 242, 180, 0.65) 0 42px, transparent 43px),
+        radial-gradient(circle at 88% 80%, rgba(255, 230, 150, 0.6) 0 46px, transparent 47px),
+        linear-gradient(180deg, #dff6ff 0%, #eefcff 42%, #fff8dd 100%);
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 430px;
+      position: relative;
+    }
+
+    .sun {
+      position: absolute;
+      top: -18px;
+      right: 4px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #ffe57a;
+      box-shadow: 0 0 0 10px rgba(255, 229, 122, 0.25);
+      z-index: 0;
+    }
+
+    .card {
+      position: relative;
+      background: #fffef9;
+      border-radius: 34px;
+      padding: 26px 18px 20px;
+      box-shadow: 0 16px 35px rgba(120, 170, 220, 0.14);
+      border: 2px solid #fff3bd;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(255, 215, 120, 0.22) 0 14px, transparent 15px),
+        radial-gradient(circle at 82% 18%, rgba(255, 210, 110, 0.18) 0 12px, transparent 13px),
+        radial-gradient(circle at 18% 82%, rgba(255, 220, 140, 0.18) 0 16px, transparent 17px),
+        radial-gradient(circle at 88% 78%, rgba(255, 205, 95, 0.16) 0 13px, transparent 14px);
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+
+    .mini-star {
+      font-size: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 31px;
+      color: #7a5c3b;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin: 12px 0 22px;
+      font-size: 17px;
+      color: #a37d54;
+      line-height: 1.45;
+    }
+
+    .button-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+      padding: 14px 22px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #745531;
+      background:
+        linear-gradient(135deg, #fff3a6 0%, #ffd86e 100%);
+      box-shadow:
+        0 8px 0 #efbf58,
+        0 12px 18px rgba(255, 200, 90, 0.25);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px) rotate(-1deg);
+      filter: brightness(1.02);
+    }
+
+    button:active {
+      transform: translateY(4px);
+      box-shadow:
+        0 4px 0 #efbf58,
+        0 6px 10px rgba(255, 200, 90, 0.18);
+    }
+
+    .message-box {
+      margin-top: 24px;
+      background: #ffffff;
+      border: 2px solid #ffe8a1;
+      border-radius: 24px;
+      padding: 16px;
+      min-height: 110px;
+      text-align: left;
+      box-shadow: inset 0 0 0 6px #fff9df;
+      position: relative;
+    }
+
+    .message-box::before {
+      content: "🦒";
+      position: absolute;
+      top: -14px;
+      left: 16px;
+      font-size: 22px;
+      background: #fffef9;
+      padding: 0 4px;
+    }
+
+    #text-box {
+      color: #7b5d3d;
+      font-size: 16px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      word-break: break-word;
+      min-height: 78px;
+    }
+
+    .footer-hearts {
+      margin-top: 14px;
+      font-size: 16px;
+      opacity: 0.8;
+      letter-spacing: 4px;
+    }
+
+    @media (min-width: 481px) {
+      .page {
+        max-width: 470px;
+      }
+
+      .card {
+        padding: 34px 24px 24px;
+      }
+
+      .top-row {
+        font-size: 36px;
+      }
+
+      .mini-star {
+        font-size: 24px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .subtitle {
+        font-size: 19px;
+      }
+
+      button {
+        font-size: 18px;
+        padding: 15px 26px;
+      }
+
+      .message-box {
+        min-height: 130px;
+        padding: 18px;
+      }
+
+      #text-box {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="sun"></div>
+
+    <div class="card">
+      <div class="content">
+        <div class="top-row">
+          <span class="mini-star">✨</span>
+          <span>🦒</span>
+          <span class="mini-star">🌼</span>
+        </div>
+
+        <h1>Hey abim</h1>
+        <div class="subtitle">Senin için küçük bir şey yaptım!</div>
+
+        <div class="button-wrap">
+          <button id="btn">Buraya bas 🦒</button>
+        </div>
+
+        <div class="message-box">
+          <div id="text-box"></div>
+        </div>
+
+        <div class="footer-hearts">🤍 ☀️ 🤍</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const button = document.getElementById("btn");
+    const textBox = document.getElementById("text-box");
+
+    const message = "Buraya kendi mesajını yazabilirsin.";
+
+    let i = 0;
+    let typing = false;
+
+    button.addEventListener("click", () => {
+      if (typing) return;
+
+      textBox.innerHTML = "";
+      i = 0;
+      typing = true;
+
+      function typeText() {
+        if (i < message.length) {
+          textBox.innerHTML += message.charAt(i);
+          i++;
+          setTimeout(typeText, 40);
+        } else {
+          typing = false;
+        }
+      }
+
+      typeText();
+    });
+  </script>
+</body>
+</html>
